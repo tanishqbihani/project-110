@@ -27,12 +27,19 @@ while True:
 		
 		
 		#resize the frame
+		img = cv2.resize(frame,(224,224))
 		
 		# expand the dimensions
+		test_image = np.array(img, dtype=np.float320)
+		test_image = np.expand_dims(test_img, axis=0)
+		
+				      
 		
 		# normalize it before feeding to the model
+		normalised_image = test_image/255.0
 		
 		# get predictions from the model
+		prediction = model.predict(normalised_image)
 		
 		
 		
